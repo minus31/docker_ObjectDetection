@@ -47,8 +47,10 @@ USER root
 RUN apt-get update -y
 RUN apt-get install -y python-pip python-dev build-essential
 RUN apt-get install -y python3-pip
-RUN pip3 install tensorflow
+RUN apt-get install -y sudo
 RUN apt-get install -y protobuf-compiler python-pil python-lxml
+RUN apt-get install -y vim 
+
 # Cython
 RUN pip3 install cython
 # Contextlib2
@@ -59,6 +61,10 @@ RUN pip3 install jupyter
 RUN pip3 install matplotlib 
 # Pandas: 
 RUN pip3 install pandas
+# keras
+RUN pip3 install keras==2.2.3
+# tensorflow
+RUN pip3 install tensorflow
 
 # Tensorflow repository through git
 WORKDIR /home/$USER_ID
